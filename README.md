@@ -1,7 +1,7 @@
-<<<<<<< HEAD
+
 # Task-Flow
 A simple To-Do List application built using Python and Tkinter. The app allows users to add, delete, and edit tasks through a graphical interface. All tasks are saved in a text file and automatically loaded when the program starts.
-=======
+
 SMARTDOC
 Hospital Management System 
 
@@ -46,4 +46,4 @@ Member 5: Main Setup & Integration
 - Programming Language: Python 
 - Interface: Tkinter (GUI) 
 - Version Control: Git & GitHub 
->>>>>>> 691549490ac5f2eaa4929d28002f386e15ff85a9
+
