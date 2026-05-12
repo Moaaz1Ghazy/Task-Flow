@@ -1,45 +1,39 @@
-import tkinter as tk
-from tkinter import messagebox
+ Appointments Section
+# =========================
+# MEMBER 3 - APPOINTMENTS
+# =========================
 
-patients_list = []
+appointments = []
 
-def handle_add():
-    patient_name = entry_patient.get().strip()
-    if patient_name:
-        patients_list.append(patient_name)
-        entry_patient.delete(0, tk.END)
-        messagebox.showinfo("Success", f"Patient {patient_name} added")
+def book_appointment():
+    patient = entry_app_patient.get()
+    doctor = entry_app_doctor.get()
+
+    if patient in patients and doctor in doctors:
+
+        appointments.append((patient, doctor))
+
+        messagebox.showinfo("Success", "Appointment Booked")
+
+        entry_app_patient.delete(0, tk.END)
+        entry_app_doctor.delete(0, tk.END)
+
     else:
-        messagebox.showwarning("Warning", "Please enter a name")
+        messagebox.showwarning("Error", "Invalid patient or doctor")
 
-def handle_delete():
-    target_name = entry_patient.get().strip()
-    if target_name in patients_list:
-        patients_list.remove(target_name)
-        entry_patient.delete(0, tk.END)
-        messagebox.showinfo("Deleted", "Patient removed")
+
+def show_appointments():
+
+    if appointments:
+
+        text = ""
+
+        for app in appointments:
+            text += f"{app[0]} -> {app[1]}\n"
+
     else:
-        messagebox.showerror("Error", "Name not found")
-def handle_search():
-    query_name = entry_patient.get().strip()
-    if query_name in patients_list:
-        messagebox.showinfo("Result", f"Yes, {query_name} is here")
-    else:
-        messagebox.showwarning("Result", "Name not found")
-root = tk.Tk()
-root.title("Patient Management System")
-root.geometry("400x300")
+        text = "No appointments"
 
-entry_patient = tk.Entry(root, font=("Arial", 14))
-entry_patient.pack(pady=20)
-
-btn_add = tk.Button(root, text="Add Patient", command=handle_add, bg="green", fg="white")
-btn_add.pack(fill="x", padx=50, pady=5)
-
-btn_search = tk.Button(root, text="Search Patient", command=handle_search, bg="blue", fg="white")
-btn_search.pack(fill="x", padx=50, pady=5)
-
-btn_delete = tk.Button(root, text="Delete Patient", command=handle_delete, bg="red", fg="white")
-btn_delete.pack(fill="x", padx=50, pady=5)
-
-root.mainloop()
+    messagebox.showinfo("Appointments", text)
+Commit
+git commit -m "Appointments system added"
