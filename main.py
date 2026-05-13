@@ -62,5 +62,20 @@ def search_doctor():
 
     else:
         messagebox.showinfo("Result", "Doctor not found")
+# Appointment UI
+tk.Label(window, text="\nAppointment Patient", bg="lightblue").pack()
 
+entry_app_patient = tk.Entry(window)
+entry_app_patient.pack()
+
+tk.Label(window, text="Appointment Doctor", bg="lightblue").pack()
+
+entry_app_doctor = tk.Entry(window)
+entry_app_doctor.pack()
+
+tk.Button(window, text="Book Appointment", command=book_appointment).pack()
+
+tk.Button(window, text="Show Appointments", command=show_appointments).pack()
+Commit
+git commit -m "GUI design created"
 root.mainloop()
