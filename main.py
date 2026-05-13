@@ -41,5 +41,26 @@ btn_search.pack(fill="x", padx=50, pady=5)
 
 btn_delete = tk.Button(root, text="Delete Patient", command=handle_delete, bg="red", fg="white")
 btn_delete.pack(fill="x", padx=50, pady=5)
+doctors = []
+
+def add_doctor():
+    name = entry_doctor.get()
+
+    if name:
+        doctors.append(name)
+
+        entry_doctor.delete(0, tk.END)
+
+        messagebox.showinfo("Success", "Doctor Added")
+
+
+def search_doctor():
+    name = entry_doctor.get()
+
+    if name in doctors:
+        messagebox.showinfo("Found", "Doctor exists")
+
+    else:
+        messagebox.showinfo("Result", "Doctor not found")
 
 root.mainloop()
