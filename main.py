@@ -1,3 +1,4 @@
+from curses import window
 import tkinter as tk
 from tkinter import messagebox
 
@@ -63,4 +64,5 @@ def search_doctor():
     else:
         messagebox.showinfo("Result", "Doctor not found")
 
-root.mainloop()
+root.mainloop() 
+window.mainloop()
